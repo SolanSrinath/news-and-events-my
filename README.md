@@ -1,4 +1,4 @@
-News and events Project
+**News and events Project**
 
 What is MERN Stack? 
 MERN Stack stands for MongoDB/MySQL, Express, React, Node.js and this combined stack is known as MERN stack.
