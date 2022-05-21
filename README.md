@@ -1,4 +1,5 @@
-# News and events Project
+
+<h1 align="center"># News and events Project</h1>
 
 What is MERN Stack? 
 MERN Stack stands for MongoDB/MySQL, Express, React, Node.js and this combined stack is known as MERN stack.
@@ -10,24 +11,22 @@ React	A JavaScript library used to create beautiful and interactive user interfa
 Node	It’s a JavaScript runtime environment built on Google Chrome’s V8 engine, and it compiles js at the runtime.
 
 
-Prerequisite 
+# Prerequisite 
 HTML, CSS, JavaScript, Reactjs, nodejs, Expressjs, sql query
 Project steps:
 Whole project has 2 parts frontend and backend
-Step 1.  Create project folder
+### Step 1.  Create project folder
 Create project folder using cmd command "mkdir news-and-events-my"
 		Name: news-and-events-my
 Then two subfolders using cmd a) frontend b) backend
 
-
-
-
 Note: we add all the react code in frontend and express code in backend
 
-SECTION-I 
-CREATING FRONTEND
+<h2 align="center"># SECTION-I</h2>
+<h2 align="center">CREATING FRONTEND</h2>
 
-Step 2: Create React Application 
+
+### Step 2: Create React Application 
 To create react application go inside frontend folder using cd command 
 "cd frontend"
 
@@ -38,7 +37,7 @@ npm start
 Note: This command opens the React project on the following URL: localhost: 3000 
 Now, you are all set to build the frontend of React news and event project
 
-Step 3: Integrating React Bootstrap with React App 
+### Step 3: Integrating React Bootstrap with React App 
 In the next step, install the React Bootstrap front-end framework in our MERN stack app. This framework will allow us to use the Bootstrap’s UI component in our React news and events app 
 React Bootstrap allows us to import individual UI components instead of importing the whole set of libraries. 
 npm install react-bootstrap
@@ -47,10 +46,7 @@ You have to import the Bootstrap into components and it will help you to create 
 
 import "bootstrap/dist/css/bootstrap.css"; 
 
- 
-
-
-Step 4: Creating router in app.js 
+### Step 4: Creating router in app.js 
 
 Create router using <Router> <routes> and <route path="" element="{}">
 Four routes are created 
@@ -58,9 +54,8 @@ Four routes are created
 2. dashboard
 3. login
 4. news form
-
-
-<Router>
+```html
+      <Router>
         <Routes>
           <Route path="/" element={<Login />}></Route>
           <Route path="/login" element={<Login />}></Route>
@@ -69,9 +64,9 @@ Four routes are created
           <Route path="/dashboard" element={<Dashboard />}></Route>
         </Routes>
       </Router>
+```
 
-
-
+```html
 App.js
 import Login from "./pages/Authentication/Login";
 import Form from "./pages/Dashboard/Form";
@@ -93,9 +88,9 @@ export default function app() {
     </div>
   );
 }
+```
 
-
-Step 5: Creating components 
+### Step 5: Creating components 
 To create component we firstly create folder "component" in src 
  
 
@@ -103,10 +98,10 @@ Next we create two more folder inside the component
 1. Header and footer 
   
 
-1. Inside header folder create Header.js file and style.css 
+#### 1. Inside header folder create Header.js file and style.css 
 
  
-
+```html
 Header.js
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -132,10 +127,11 @@ export default function Header() {
     </nav>
   );
 }
+```
 Note : you can style accordingly in style.css
 
-2. Inside footer folder create footer.js file and style.css
- 
+####  2. Inside footer folder create footer.js file and style.css
+ ```html
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
@@ -155,19 +151,19 @@ export default function Footer() {
   );
 }
 
-
+```
 Note : you can style accordingly in style.css
 
-Step 6: Creating Pages 
+### Step 6: Creating Pages 
 Create Pages folder to store our view, there are login form, dashboard, news entry form, the login form is created inside Authentication folder and rest are created inside dashboard folder.
 Note: include header and footer component in these files.
 
  
 
 
-1. Login form –it is the end point to the project: code snippet you can see below 
+#### 1. Login form –it is the end point to the project: code snippet you can see below 
 
-
+```html
 return (
         <>
             <Header />
@@ -222,9 +218,9 @@ return (
         </>
     );
 
-
+```
 Whole Login file 
-
+```html
 import React, { useState } from "react";
 import {CONFIG, LOGIN_URL } from '../../utils/constants'
 import "./style.css";
@@ -338,23 +334,14 @@ const Login = () => {
 };
 
 export default Login;
-
+```
 
 
 The UI output of form is shown below:
 
 
- 
-
-
-
-
-
-
-
-
-2. Dash board.js  
-
+#### 2. Dash board.js  
+```html
 import React, { useEffect, useState } from "react";
 import {
   Table,
@@ -447,8 +434,9 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
+```
 dashboard snippet:
+```html
 <>
       <Header />
       <Table striped hover bordered size="sm">
@@ -489,11 +477,11 @@ dashboard snippet:
       <Footer />
     </>
 
-
+```
 The UI output of dashboard is shown below:
  
-3.  news form is created in form.js 
-
+#### 3.  news form is created in form.js 
+```html
 import React, { useEffect, useState } from "react";
 
 import {
@@ -671,7 +659,9 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+		```
 code snippet 
+```html
 <>
 <Header />
       <Form onSubmit={(e) => handleSubmit(e)}>
@@ -753,31 +743,30 @@ code snippet
       </Form>
       <Footer />
     </>
-
+```
 The UI of news form is shown below:
 
  
 
+<h2 align="center"># SECTION-II</h2>
+
+<h2 align="center">Transferring data from frontend to backend</h2>
 
 
-SECTION-II
-
-Transferring data from frontend to backend
-
-Step 7:  Creating data transfer actions
+### Step 7:  Creating data transfer actions
 
 To create actions firstly create separate folder "actions" inside src
  
 
 
-1. To transfer login form data and news form data to backend we create authaction.js and newsAction.js file inside actions folder 
+#### 1. To transfer login form data and news form data to backend we create authaction.js and newsAction.js file inside actions folder 
 
 
 
  
 
-2. code snippet of authAction.js 
-
+#### 2. code snippet of authAction.js 
+```html
 await axios.post(NEWS_SELECT_URL, body, CONFIG)
         .then((res) => {
             console.log('client side')
@@ -790,7 +779,8 @@ await axios.post(NEWS_SELECT_URL, body, CONFIG)
             }
 
         })
-
+```
+```html
 import axios from 'axios';
 import { CONFIG, NEWS_SELECT_URL } from '../components/utils/constants';
 
@@ -818,11 +808,12 @@ export const loginAction = async ({ username, password }) => {
         console.log("error client side " + err);
     }
 }
+```
 
-
-3. Code snippet of newsActions.js  for sending data adding, updating and deleting data is shown below 
+#### 3. Code snippet of newsActions.js  for sending data adding, updating and deleting data is shown below 
 
 Sending---------------------
+```html
 const row = axios.post('http://localhost:5000/select/row', body, CONFIG)
             .then((res) => {
                 // console.log(res.data.selectRow);
@@ -831,8 +822,9 @@ const row = axios.post('http://localhost:5000/select/row', body, CONFIG)
                 // Next()
                 return res.data.selectRow;
             }) 
-
+```
 Deleting-------------------
+```html
 await axios.post(NEWS_DELETE_URL, body, CONFIG)
             .then((res) => {
                 console.log(res.data);
@@ -840,15 +832,17 @@ await axios.post(NEWS_DELETE_URL, body, CONFIG)
                     
                 }
             })
-
+```
 Updating-----------------------
+```html
 await axios.post(NEWS_EDIT_URL, body, CONFIG)
             .then((res) => {
                 console.log(res.data);
                 if (res.data.status === SUCCESS);
             })
-
+```
 Adding-------------------
+```html
 const newsTable = axios.post(NEWS_SELECT_URL, CONFIG)
             .then((res) => {
                 // console.log('client side news action')
@@ -857,7 +851,8 @@ const newsTable = axios.post(NEWS_SELECT_URL, CONFIG)
             })
         return newsTable;
 
-
+```
+```html
 import axios from 'axios';
 import { NEWS_SELECT_URL, CONFIG, SUCCESS, NEWS_EDIT_URL, NEWS_DELETE_URL } from '../utils/constants';
 
@@ -954,20 +949,21 @@ export const delete_from = async ({ id }) => {
         console.log(err);
     }
 }
+```
+<h2 align="center"># SECTION-III</h2>
 
+<h2 align="center">Necessary Constants</h2>
 
-
-SECTION-III
-
-Necessary Constants 
+ 
 
 
 To set and use necessary constants from one place create a folder "utils" inside src and create a file constans.js inside it 
  
 
-1. Define the constants inside constants.js 
-
+#### 1. Define the constants inside constants.js 
+```html
 // ------------------------------ URLs ------------------------------
+
 
 const BASE_URL = "http://localhost:5000"
 
@@ -986,19 +982,18 @@ export const CONFIG = {
         "Access-Control-Allow-Methods": 'OPTIONS,POST,GET',
         'Content-Type': 'application/json'
       }
-}
+	
+```	
+<h2 align="center"># SECTION-IV</h2>
+	
+<h2 align="center">Backend Processing </h2>
 
 
+### Step 8: Create a file dbserver.js inside frontend folder 
 
+#### 1. code snippet for login processing 
 
-
-SECTION-IV
-Backend Processing 
-
-Step 8: Create a file dbserver.js inside frontend folder 
-
-1. code snippet for login processing 
-
+```html
 / ---------------------- Login ----------------------
 
 app.use('/login', (req, res) => {
@@ -1026,9 +1021,9 @@ app.use('/login', (req, res) => {
         console.error(err);
     }
 })
-
-2. code snippet for inserting news form data 
-
+```
+#### 2. code snippet for inserting news form data 
+```html
 // ---------------------- (insert query) news ----------------------
 
 app.post('/insert/news', (req, res) => {
@@ -1079,9 +1074,10 @@ app.post('/select/news', (req, res) => {
         console.error(err);
     }
 })
+```
+#### 3. code snippet for read data from db
 
-3. code snippet for read data from db
-
+```html
 / ---------------------- (select specific query) news ----------------------
 
 app.post('/select/row', (req, res) => {
@@ -1098,8 +1094,9 @@ app.post('/select/row', (req, res) => {
     })
 
 })
-
-4. code to update data in db
+```
+#### 4. code to update data in db
+```html
 app.post('/edit/news', (req, res) => {
     const NEWS_UPDATE = `update news_tb set title=?, type=?, news=? where id=? ;`;
 
@@ -1125,9 +1122,9 @@ app.post('/edit/news', (req, res) => {
         console.error(err);
     }
 })
-
-5. code snippet to delete data in database
-
+```
+#### 5. code snippet to delete data in database
+```html
 app.post('/delete/news', (req, res) => {
     console.log('delete news');
 
@@ -1150,9 +1147,9 @@ app.post('/delete/news', (req, res) => {
         console.log(err);
     }
 
-
+```
 Over all code in dbserver is shown in server
-
+```html
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -1337,20 +1334,21 @@ app.post('/delete/news', (req, res) => {
 });
 
 app.listen(port, () => console.log('server started at port ' + port))
-
+```
 
 
 NOTE: .env file creating inside frontend folder and setting database parameters 
-
+```html
 DB_HOST = localhost
 DB_USER = root
 DB_PASSWORD = ''
 DB_DATABASE = news
 DB_PORT = 3306
 PORT = 5000
-
+```
 
 NOTE: necessary library packages used the project backend 
+```html
 "author": "Srinath",
   "license": "ISC",
   "dependencies": {
@@ -1361,8 +1359,9 @@ NOTE: necessary library packages used the project backend
     "mysql": "^2.18.1",
     "pg-promise": "^10.11.1"
   }
-
+```
 NOTE: necessary library packages for frontend
+```html
 {
   "name": "frontend",
   "version": "0.1.0",
@@ -1382,7 +1381,9 @@ NOTE: necessary library packages for frontend
     "react-scripts": "5.0.0",
     "web-vitals": "^2.1.4"
   },
-
-****************************END************************************
+```
+ <h2 align="center"> ****************************END************************************</h2>
+	
 
 You can find this code at github link
+https://github.com/SolanSrinath/news-and-events-my
